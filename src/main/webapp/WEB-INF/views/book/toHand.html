@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Выдать книгу</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/book/{id}/toHand/add(id=${book.getId()})}" th:object="${book}">
+    <label for="person">Выберите человека:</label>
+    <select th:object="${person}" th:field="*{id}" id="person">
+        <option th:each="person : ${people}" th:value="${person.getId()}"
+                th:text="${person.getName()}"
+                th:if="${person.getId()>0}"></option>
+    </select>
+    <input type="submit" value="Выдать книгу"/>
+
+</form>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
